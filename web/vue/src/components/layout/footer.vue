@@ -2,8 +2,8 @@
   footer.p2.bg--off-white
     .contain
       p
-        em Use Gekko at your own risk.
-      p Using Gekko v{{ version.gekko }} and Gekko UI v{{ version.ui }}.
+        em 使用 Scout 风险自负。
+      p 基于 Gekko v{{ version.gekko }} 和 Gekko UI v{{ version.ui }}.
 </template>
 
 <script>

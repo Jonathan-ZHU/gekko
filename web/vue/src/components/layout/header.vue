@@ -3,15 +3,16 @@
     #top
     header.bg--off-white.grd
       .contain.grd-row
-        h3.py1.px2.col-2 Gekko UI
+        .col-2
+          img(src='/assets/logo.png')
     nav.bg--light-gray
       .menu.contain
-        router-link(to='/home').py1 Home
-        router-link(to='/live-gekkos').py1 Live Gekkos
-        router-link(to='/backtest').py1 Backtest
-        router-link(to='/data').py1 Local data
-        router-link(to='/config').py1 Config
-        a(href='https://gekko.wizb.it/docs/introduction/about_gekko.html', target='_blank').py1 Documentation
+        router-link(to='/home').py1 主页
+        router-link(to='/live-gekkos').py1 实时活动
+        router-link(to='/backtest').py1 回溯测试
+        router-link(to='/data').py1 本地数据
+        router-link(to='/config').py1 注册
+        a(href='https://gekko.wizb.it/docs/introduction/about_gekko.html', target='_blank').py1 文档
 
 </template>
 
@@ -20,6 +21,14 @@ export default {}
 </script>
 
 <style>
+.col-2 img{
+  width:25%;
+}
+
+h3 {
+display:inline-block;
+}
+
 .menu {
   display: flex;
   width: 100%;

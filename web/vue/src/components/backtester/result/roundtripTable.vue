@@ -1,6 +1,6 @@
 <template lang='jade'>
   .contain.roundtrips
-    h2 Roundtrips
+    h2 交易记录
     table(v-if='roundtrips.length')
       thead
         tr
@@ -24,7 +24,7 @@
             td.profit {{ rt.pnl.toFixed(2) }}
             td.profit {{ rt.profit.toFixed(2) }}%
     div(v-if='!roundtrips.length')
-      p Not enough data to display
+      p 没有足够的数据可供展示
 </template>
 
 <script>

@@ -2,9 +2,9 @@
   section.contain.grd-row
     .grd-row-col-3-6(v-html='left')
     .grd-row-col-3-6.txt--center
-      img(src='/assets/gekko.jpg')
+      img(src='/assets/me.jpg')
       p
-        em The most valuable commodity I know of is information.
+        em Do Something Awesome
 </template>
 
 <script>
@@ -12,15 +12,15 @@ import marked from '../../tools/marked';
 
 const left = marked(`
 
-## Gekko
+## Scout
 
-Gekko is a Bitcoin trading bot and backtesting platform that
-connects to popular Bitcoin exchanges. It is written in javascript
-and runs on nodejs.
+Scout 是基于 Gekko 的一个比特币交易机器人和回测平台。
+连接到世界范围内流行的比特币交易所。由 Tiny Calf 团队进行二次扩展开发，使用 JavaScript 并在 npm 上运行。
 
-[Find out more](https://gekko.wizb.it/).
+[了解 Gekko](https://gekko.wizb.it/)<br>
+[了解 Tiny Calf](https://www.tiny-calf.com/)
 
-*Gekko is 100% open source and free, if you paid for this you have been scammed.*
+*Scout 100% 开源免费*
 
 `);
 

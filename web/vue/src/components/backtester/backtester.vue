@@ -1,13 +1,13 @@
 <template lang='jade'>
   div
-    h2.contain Backtest
+    h2.contain 回溯测试
     .hr.contain
     config-builder(v-on:config='check')
     div(v-if='backtestable')
       .txt--center
-        a.w100--s.my1.btn--blue(href='#', v-if='backtestState !== "fetching"', v-on:click.prevent='run') Backtest
+        a.w100--s.my1.btn--blue(href='#', v-if='backtestState !== "fetching"', v-on:click.prevent='run') 回溯测试
         div(v-if='backtestState === "fetching"').scan-btn
-          p Running backtest..
+          p 正在执行回溯测试
           spinner
     result(v-if='backtestResult && backtestState === "fetched"', :result='backtestResult')
 </template>

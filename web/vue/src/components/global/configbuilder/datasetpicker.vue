@@ -1,8 +1,8 @@
 <template lang='jade'>
 div
-  h3 Select a dataset
+  h3 选择数据组
   .txt--center.my2(v-if='datasetScanstate === "idle"')
-    a.w100--s.btn--blue.scan-btn(href='#', v-on:click.prevent='scan') scan available data
+    a.w100--s.btn--blue.scan-btn(href='#', v-on:click.prevent='scan') 扫描可用数据
   .txt--center.my2(v-if='datasetScanstate === "scanning"')
     spinner
   .my2(v-if='datasetScanstate === "scanned"')
@@ -11,41 +11,41 @@ div
       table.full
         thead
           tr
-            th 
-            th exchange
-            th currency
-            th asset
-            th from
-            th to
-            th duration
+            th
+            th 交易所
+            th 货币
+            th 资产
+            th 起始时间
+            th 终止时间
+            th 持续时间
         tbody
           tr(v-for='(set, i) in datasets')
             td.radio
               input(type='radio', name='dataset', :value='i', v-model='setIndex', v-bind:id='set.id')
-            td 
+            td
               label(v-bind:for='set.id') {{ set.exchange }}
-            td 
+            td
               label(v-bind:for='set.id') {{ set.currency }}
             td
               label(v-bind:for='set.id') {{ set.asset }}
-            td 
+            td
               label(v-bind:for='set.id') {{ fmt(set.from) }}
-            td 
+            td
               label(v-bind:for='set.id') {{ fmt(set.to) }}
             td
               label(v-bind:for='set.id') {{ humanizeDuration(set.to.diff(set.from)) }}
-      
+
       em
-        a(href='#', v-on:click.prevent='openRange', v-if='!rangeVisible') Adjust range
+        a(href='#', v-on:click.prevent='openRange', v-if='!rangeVisible') 设置时间段
       template(v-if='rangeVisible')
         div
-          label(for='customFrom') From:
+          label(for='customFrom') 起始时间:
           input(v-model='customFrom')
         div
-          label(for='customTo') To:
+          label(for='customTo') 终止时间:
           input(v-model='customTo')
 
-    em(v-else) No Data found 
+    em(v-else) No Data found
       a(href='#/data/importer') Lets add some
 
 </template>

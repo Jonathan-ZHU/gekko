@@ -2,42 +2,42 @@
   .contain.py2
     .text(v-html='text')
     .hr
-    h3 Market watchers
+    h3 市场监控
     .text(v-if='!watchers.length')
       p You are currently not watching any markets.
     table.full.clickable(v-if='watchers.length')
       thead
         tr
-          th exchange
-          th currency
-          th asset
-          th started at
-          th last update
-          th duration
+          th 交易所
+          th 货币
+          th 资产
+          th 起始于
+          th 最近更新
+          th 持续时间
       tbody
         tr.clickable(v-for='gekko in watchers', v-on:click='$router.push({path: `live-gekkos/watcher/${gekko.id}`})')
           td {{ gekko.watch.exchange }}
           td {{ gekko.watch.currency }}
           td {{ gekko.watch.asset }}
-          td 
+          td
             template(v-if='gekko.firstCandle') {{ fmt(gekko.firstCandle.start) }}
           td
             template(v-if='gekko.lastCandle') {{ fmt(gekko.lastCandle.start) }}
           td
             template(v-if='gekko.firstCandle && gekko.lastCandle') {{ timespan(gekko.lastCandle.start, gekko.firstCandle.start) }}
-    h3 Strat runners
+    h3 在线策略
     .text(v-if='!stratrunners.length')
-      p You are currently not running any strategies.
+      p 您还没有运行任何策略
     table.full(v-if='stratrunners.length')
       thead
         tr
-          th exchange
-          th currency
-          th asset
-          th last update
-          th duration
-          th strategy
-          th profit
+          th 交易所
+          th 货币
+          th 资产
+          th 最近更新
+          th 持续时间
+          th 策略
+          th 利润
       tbody
         tr.clickable(v-for='gekko in stratrunners', v-on:click='$router.push({path: `live-gekkos/stratrunner/${gekko.id}`})')
           td {{ gekko.watch.exchange }}
@@ -52,8 +52,8 @@
             template(v-if='!gekko.report') 0
             template(v-if='gekko.report') {{ round(gekko.report.profit) }} {{ gekko.watch.currency }}
     .hr
-    h2 Start a new live Gekko
-    router-link(to='/live-gekkos/new') start a new live Gekko!
+    h2 创建一个新的 Live Scout
+    router-link(to='/live-gekkos/new') 创建一个新的 Live Scout!
 </template>
 
 <script>
@@ -64,9 +64,9 @@ import marked from '../../tools/marked'
 
 const text = marked(`
 
-## Live Gekko
+## Live Scout
 
-Run your strategy against the live market!
+在真实交易所中运行您的策略！
 
 `);
 

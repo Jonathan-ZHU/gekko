@@ -2,14 +2,14 @@
 .grd
   .grd-row
     .grd-row-col-3-6.px1
-      h3 Strategy
+      h3 策略
       div
-        label(for='strat').wrapper Strategy:
+        label(for='strat').wrapper 策略:
         .custom-select.button
           select(v-model='strategy')
             option(v-for='strat in strategies') {{ strat.name }}
       div
-        label(for='candleSize') Candle Size
+        label(for='candleSize') 蜡烛大小
         .grd-row
           .grd-row-col-3-6
             input(v-model='rawCandleSize')
@@ -20,13 +20,13 @@
                 option hours
                 option days
       div
-        label(for='historySize') Warmup period (in {{ rawCandleSize }} {{ singularCandleSizeUnit }} candles):
+        label(for='historySize') 预热时间 (in {{ rawCandleSize }} {{ singularCandleSizeUnit }} candles):
         input(v-model='historySize')
         em.label-like (will use {{ humanizeDuration(candleSize * historySize * 1000 * 60) }} of data as history)
     .grd-row-col-2-6.px1
       div
-        h3 Parameters
-        p {{ strategy }} Parameters:
+        h3 参数
+        p {{ strategy }} 参数:
         textarea.params(v-model='rawStratParams')
         p.bg--red.p1(v-if='rawStratParamsError') {{ rawStratParamsError.message }}
 </template>

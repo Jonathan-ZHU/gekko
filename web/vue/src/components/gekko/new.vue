@@ -1,6 +1,6 @@
 <template lang='jade'>
   div.contain.my2
-    h3 Start a new gekko
+    h3 创建一个新的 Scout
     gekko-config-builder(v-on:config='updateConfig')
     .hr
     .txt--center(v-if='config.valid')
@@ -158,7 +158,7 @@ export default {
           // the specified market is already being watched,
           // just start a gekko!
           this.startGekko(this.routeToGekko);
-          
+
         } else {
           // the specified market is not yet being watched,
           // we need to create a watcher
