@@ -2,11 +2,13 @@
 #chartWrapper(v-bind:class='{ clickable: !isClicked }')
   .shield(v-on:click.prevent='click')
   svg#chart(width='960', :height='height')
+  div#container
 </template>
 
 <script>
 
 import chart from '../../../d3/chart4'
+import chart4backtest from '../../../d3/chart4backtest'
 import { draw as drawMessage, clear as clearMessage } from '../../../d3/message'
 
 const MIN_CANDLES = 4;
@@ -41,6 +43,7 @@ export default {
         drawMessage('Not enough data to spawn chart');
       } else {
         chart(this.data.candles, this.data.trades, this.height);
+        chart4backtest(this.data.candles, this.data.trades, this.height);
       }
     },
     remove: function() {
@@ -51,6 +54,10 @@ export default {
 </script>
 
 <style>
+
+#container {
+  min-width:400px;height:400px;
+}
 
 #chartWrapper.clickable {
   position: relative;

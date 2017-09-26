@@ -64,6 +64,10 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.plugins = [
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify('"development"'),
+    }),
+    new webpack.ProvidePlugin({
+        jQuery: "jquery",
+        $: "jquery"
     })
   ];
 }
