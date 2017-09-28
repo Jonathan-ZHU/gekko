@@ -13,7 +13,9 @@ const ws = require('ws');
 const app = koa();
 
 const WebSocketServer = require('ws').Server;
-const wss = new WebSocketServer({ server: server });
+const wss = new WebSocketServer({
+    server: server
+});
 
 const cache = require('./state/cache');
 const ListManager = require('./state/listManager');
@@ -22,13 +24,13 @@ require('./supportsTalib');
 
 // broadcast function
 const broadcast = data => {
-  if(_.isEmpty(data))
-    return;
+    if (_.isEmpty(data))
+        return;
 
-  _.each(
-    wss.clients,
-    client => client.send(JSON.stringify(data))
-  );
+    _.each(
+        wss.clients,
+        client => client.send(JSON.stringify(data))
+    );
 }
 cache.set('broadcast', broadcast);
 
@@ -70,32 +72,32 @@ router.post('/api/getCandles', require(ROUTE('getCandles')));
 // });
 
 app
-  .use(cors())
-  .use(serve(WEBROOT + 'vue'))
-  .use(bodyParser())
-  .use(require('koa-logger')())
-  .use(router.routes())
-  .use(router.allowedMethods());
+    .use(cors())
+    .use(serve(WEBROOT + 'vue'))
+    .use(bodyParser())
+    .use(require('koa-logger')())
+    .use(router.routes())
+    .use(router.allowedMethods());
 
 server.on('request', app.callback());
 server.listen(config.api.port, config.api.host, '::', () => {
-  const host = `${config.ui.host}:${config.ui.port}${config.ui.path}`;
+    const host = `${config.ui.host}:${config.ui.port}${config.ui.path}`;
 
-  if(config.ui.ssl) {
-    var location = `https://${host}`;
-  } else {
-    var location = `http://${host}`;
-  }
+    if (config.ui.ssl) {
+        var location = `https://${host}`;
+    } else {
+        var location = `http://${host}`;
+    }
 
-  console.log('Serving Gekko UI on ' + location +  '\n');
+    console.log('Serving Gekko UI on ' + location + '\n');
 
 
-  // only open a browser when running `node gekko`
-  // this prevents opening the browser during development
-  let nodeCommand = _.last(process.argv[1].split('/'));
-  if(nodeCommand === 'gekko' && !config.headless) {
-    try {
-      opn(location);
-    } catch(e) {}
-  }
+    // only open a browser when running `node gekko`
+    // this prevents opening the browser during development
+    let nodeCommand = _.last(process.argv[1].split('/'));
+    if (nodeCommand === 'gekko' && !config.headless) {
+        try {
+            opn(location);
+        } catch (e) {}
+    }
 });
