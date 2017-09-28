@@ -1,15 +1,16 @@
 <template lang='jade'>
-#chartWrapper(v-bind:class='{ clickable: !isClicked }')
-  .shield(v-on:click.prevent='click')
-  svg#chart(width='960', :height='height')
-  div#container
+//#chartWrapper(v-bind:class='{ clickable: !isClicked }')
+  //.shield(v-on:click.prevent='click')
+  //svg#chart(width='960', :height='height')
+div#chartdiv
 </template>
 
 <script>
 
 import chart from '../../../d3/chart4'
-import chart4backtest from '../../../d3/chart4backtest'
+import btchart from '../../../amcharts/backtestchart'
 import { draw as drawMessage, clear as clearMessage } from '../../../d3/message'
+
 
 const MIN_CANDLES = 4;
 
@@ -42,8 +43,8 @@ export default {
       if(_.size(this.data.candles) < MIN_CANDLES) {
         drawMessage('Not enough data to spawn chart');
       } else {
-        chart(this.data.candles, this.data.trades, this.height);
-        chart4backtest(this.data.candles, this.data.trades, this.height);
+        //chart(this.data.candles, this.data.trades, this.height);
+        btchart(this.data.candles, this.data.trades, this.height);
       }
     },
     remove: function() {
@@ -55,8 +56,8 @@ export default {
 
 <style>
 
-#container {
-  min-width:400px;height:400px;
+#chartdiv {
+  width:82%;height:600px;margin:0 auto ;
 }
 
 #chartWrapper.clickable {
