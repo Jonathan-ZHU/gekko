@@ -1,7 +1,7 @@
 <template lang='jade'>
   div.contain.my2
     div(v-if='data && !data.done')
-      h2 Importing data..
+      h2 正在导入数据...
       p Market: {{ data.watch.exchange }}:{{ data.watch.currency }}/{{ data.watch.asset }}
       .grd
         .grd-row
@@ -19,21 +19,21 @@
       spinner(v-if='!initialized')
       .contain(v-if='initialized')
         progressBar(:progress='progress')
-      p 
-        em (you don't have to wait until the import is done,
-          | you can already start 
-          router-link(to='/backtest') backtesting
+      p
+        em (您不需要等待导入过程结束,
+          | 您已经开始了
+          router-link(to='/backtest') 回溯测试
           | ).
     div(v-if='data && data.done').txt--center
-      h2 Import done
-      p 
-        | Go and 
-        router-link(to='/backtest') backtest
-        |  with your new data!
+      h2 导入完成
+      p
+        | 用数据
+        router-link(to='/backtest') 进行回溯测试
+        |  吧！
     div(v-if='!data').txt--center
-      h2 ERROR: Uknown import
-      p 
-        I don't know this import..
+      h2 ERROR: 未知导入
+      p
+        我并不知道该导入
 </template>
 
 <script>

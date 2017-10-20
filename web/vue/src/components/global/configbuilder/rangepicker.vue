@@ -1,6 +1,6 @@
 <template lang='jade'>
 div
-  h3 Daterange
+  h3 时间范围
   template(v-if='tab === "scan"')
     .txt--center(v-if='!scanned')
       a.w100--s.btn--blue.scan-btn(href='#', v-on:click.prevent='scan') scan available data

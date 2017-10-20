@@ -25,6 +25,11 @@ export default {
 
 <style>
 
+body {
+  background: #21252B;
+  color:#abb2bf;
+}
+
 #app {
   display: flex;
   min-height: 100vh;
@@ -53,6 +58,6 @@ input {
   margin-top: 2rem;
   margin-bottom: 2rem;
   height: 10px;
-  background-color: rgba(250,250,250,.99);
+  background-color: #21252B;
 }
 </style>

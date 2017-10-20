@@ -1,18 +1,18 @@
 <template lang='jade'>
 .grd.contain
-  h3 Add an API key
-  p Make sure that the API key has the permissions to create and cancel orders and view balances.
+  h3 增加 API key
+  p 确保API密钥具有创建和取消订单和查看余额的权限。
   .grd-row
     .grd-row-col-3-6.mx1
-      h3 Exchange
+      h3 交易所
       exchange-picker.contain(v-on:exchange='updateExchange', only-tradable='true')
     .grd-row-col-3-6.mx1
-      h3 Credentials
+      h3 证书
       template(v-for='cred in requires')
         label {{ cred }}
         input(v-model='credentials[cred]')
   .txt--center
-    a.w100--s.my1.btn--blue(href='#', v-on:click.prevent='upload') Add
+    a.w100--s.my1.btn--blue(href='#', v-on:click.prevent='upload') 增加
 </template>
 
 <script>

@@ -4,7 +4,7 @@
     .hr
     h3 市场监控
     .text(v-if='!watchers.length')
-      p You are currently not watching any markets.
+      p 您现在没有执行任何市场监控
     table.full.clickable(v-if='watchers.length')
       thead
         tr

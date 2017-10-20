@@ -2,14 +2,14 @@
   .contain
     .text(v-html='intro')
     .hr
-    h2 Available datasets
+    h2 可用数据
     .txt--center.my2(v-if='datasetScanstate === "idle"')
-      a.w100--s.btn--blue.scan-btn(href='#', v-on:click.prevent='scan') scan available data
+      a.w100--s.btn--blue.scan-btn(href='#', v-on:click.prevent='scan') 扫描可用数据
     .txt--center.my2(v-if='datasetScanstate === "scanning"')
       spinner
     .my2(v-if='datasetScanstate === "scanned"')
-      .bg--orange.p1.warning.my1(v-if='unscannableMakets.length')
-        p.clickable(v-if='!viewUnscannable', v-on:click.prevent='toggleUnscannable') Some markets were unscannable, click here for details.
+      .bg--orange.warning.p1.warning.my1(v-if='unscannableMakets.length')
+        p.clickable(v-if='!viewUnscannable', v-on:click.prevent='toggleUnscannable') 部分市场数据无法获取，点击此处查看详情
         template(v-if='viewUnscannable')
           p Unable to find datasets in the following markets:
           .mx2(v-for='market in unscannableMakets')
@@ -35,9 +35,9 @@
       template(v-if='!datasets.length')
         p It looks like you don't have any local data yet.
     .my2
-      h2 Import more data
-      p.text You can easily import more market data directly from exchanges using the importer.
-      router-link(to='/data/importer') Go to the importer!
+      h2 导入更多数据
+      p.text 您可以使用进口商直接从交易所导入更多的市场数据。
+      router-link(to='/data/importer') 去导入数据！
 </template>
 
 <script>
@@ -50,11 +50,10 @@ import dataset from '../global/mixins/dataset'
 
 let intro = marked(`
 
-## Local data
+## 本地数据
 
-Gekko needs local market data in order to backtest strategies. The local
-data can also be used in a warmup period when running a strategy against a
-live market.
+Scout需要本地市场数据才能进行回测策略。本地的
+数据也可以在运行策略预热期间使用
 
 `);
 
@@ -78,6 +77,12 @@ export default {
 </script>
 
 <style>
+
+.warning{
+  background-color: orange;
+  color: #fff;
+  border-radius: 4px;
+}
 
 .clickable {
   cursor: pointer;

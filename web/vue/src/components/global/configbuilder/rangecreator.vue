@@ -1,6 +1,6 @@
 <template lang='jade'>
 div
-  h3 Daterange
+  h3 时间范围
   div
     label(for='from') From
     input(v-model='from')

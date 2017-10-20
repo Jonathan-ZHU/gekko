@@ -32,3 +32,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  img {
+    width:300px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 1);
+    border-radius: 16px;
+  }
+</style>

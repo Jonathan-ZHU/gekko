@@ -142,4 +142,17 @@ export default {
 .align {
   padding-left: 1em;
 }
+
+textarea {
+  background-color: #282C34;
+}
+
+select {
+  background: transparent;
+}
+
+select option{
+  background-color: #282C34;
+  color : #fff;
+}
 </style>

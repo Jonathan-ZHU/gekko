@@ -1,20 +1,20 @@
 <template lang='jade'>
 div.contain
-  h2 Config
+  h2 注册交易所
   .hr
-  h3 Available API keys
+  h3 可用 API keys
   p(v-if='!apiKeySets.length')
-    em You don't have any API keys yet.
+    em 您还没有注册任何 API keys.
   ul
     li(v-for='exchange in apiKeySets') {{ exchange }} (
-      a(href='#', v-on:click.prevent='removeApiKey(exchange)') remove
+      a(href='#', v-on:click.prevent='removeApiKey(exchange)') 移除
       | )
-  a(href='#', v-if='!addApiToggle', v-on:click.prevent='openAddApi') add an API key
+  a(href='#', v-if='!addApiToggle', v-on:click.prevent='openAddApi') 增加一个 API key
   template(v-if='addApiToggle')
     .hr
     apiConfigBuilder
   .hr
-  
+
 </template>
 
 <script>

@@ -60,16 +60,16 @@ export default {
 }
 
 .roundtrips table td.loss {
-  color: red;
+  color: #e06c75;
   text-align: right;
 }
 .roundtrips table td.profit {
-  color: green;
+  color: #98c379;
   text-align: right;
 }
 
 .roundtrips table tr:nth-child(2n) {
-  background-color: #f6f8fa;
+  background-color: #1B1D23;
 }
 
 </style>
